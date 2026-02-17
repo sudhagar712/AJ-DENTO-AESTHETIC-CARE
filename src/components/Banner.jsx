@@ -7,7 +7,7 @@ const Banner = () => {
         <section className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden">
            
 
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="relative z-10 w-full  grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
                 {/* Left Column: Text Content */}
                 <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-left space-y-8 animate-fade-in-up">
@@ -53,14 +53,14 @@ const Banner = () => {
                 </div>
 
                 {/* Right Column: Hero Image */}
-                <div className="relative hidden md:block flex justify-center lg:justify-end items-center text-center ">
+                <div className="relative hidden md:hidden lg:block flex justify-center lg:justify-end items-center text-center  ">
                     <div className="relative w-full  max-w-md lg:max-w-xl aspect-square flex items-center justify-center">
                       
 
                         <img
                             src={bannerpic}
                             alt="Advanced Dental Aesthetic Care"
-                            className="relative z-10 w-full h-auto  object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform hover:scale-105 transition-transform duration-700 ease-out"
+                            className="relative z-10 w-full h-auto object-cover drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform hover:scale-105 transition-transform duration-700 ease-out"
                         />
                     </div>
                 </div>
