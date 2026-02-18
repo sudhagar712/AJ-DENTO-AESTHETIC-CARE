@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import bannerpic from '../assets/bannerpic.png';
 
@@ -37,12 +38,12 @@ const Banner = () => {
 
                     {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-2 lg:pt-4">
-                        <button className="group relative px-6 py-3 lg:px-8 lg:py-4 bg-gradient-to-r from-[#D4AF37] to-[#B5952F] text-[#4D0013] font-bold rounded-full overflow-hidden shadow-[0_10px_20px_rgba(212,175,55,0.3)] hover:shadow-[0_15px_30px_rgba(212,175,55,0.5)] active:scale-95 transition-all duration-300">
+                        <Link to="/contact" className="group relative px-6 py-3 lg:px-8 lg:py-4 bg-gradient-to-r from-[#D4AF37] to-[#B5952F] text-[#4D0013] font-bold rounded-full overflow-hidden shadow-[0_10px_20px_rgba(212,175,55,0.3)] hover:shadow-[0_15px_30px_rgba(212,175,55,0.5)] active:scale-95 transition-all duration-300 inline-block text-center">
                             <span className="relative z-10 flex items-center justify-center gap-2 text-sm lg:text-base">
                                 Begin Consultation
                                 <ChevronRight className="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform" />
                             </span>
-                        </button>
+                        </Link>
 
                         <button className="px-6 py-3 lg:px-8 lg:py-4 bg-white/5 border border-white/20 text-white font-medium rounded-full hover:bg-white/10 hover:border-white/40 backdrop-blur-md transition-all duration-300 active:scale-95 flex items-center justify-center gap-2 group text-sm lg:text-base">
                             <span>Explore Expertise</span>
