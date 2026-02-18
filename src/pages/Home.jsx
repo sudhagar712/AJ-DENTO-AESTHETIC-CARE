@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div>
       <Banner />
-      <Stats />
+    
       <Aboutus />
       <OurValues />
 
@@ -20,7 +20,7 @@ const Home = () => {
 
       <TechnologyS />
 
-
+  <Stats />
       <Testimonial />
 
       <Finalcontent />
