@@ -7,6 +7,8 @@ import TechnologyS from '../components/TechnologyS'
 import Finalcontent from '../components/Finalcontent'
 import Aboutus from '../components/Aboutus'
 import OurValues from '../components/OurValues'
+import Ourapproach from '../components/Ourapproach'  
+
 
 const Home = () => {
   return (
@@ -15,6 +17,7 @@ const Home = () => {
     
       <Aboutus />
       <OurValues />
+      <Ourapproach />
 
       <ServicesCard />
 
