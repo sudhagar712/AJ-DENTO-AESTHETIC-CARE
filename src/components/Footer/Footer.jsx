@@ -4,7 +4,7 @@ export default function Footer() {
 
     return (
 
-        <footer className="bg-yellow-100 text-black">
+        <footer className="text-white">
 
             {/* Top Section */}
 
@@ -129,13 +129,7 @@ export default function Footer() {
                         </div>
 
 
-                        <div className="flex items-center gap-2">
-
-                            <MessageCircle size={16} />
-
-                            <span>WhatsApp Consultation</span>
-
-                        </div>
+                       
 
 
                     </div>

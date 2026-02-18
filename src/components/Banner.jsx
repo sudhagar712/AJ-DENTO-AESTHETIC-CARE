@@ -8,7 +8,7 @@ const Banner = () => {
             <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
                 {/* Left Column: Text Content */}
-                <div className="flex flex-col justify-center mt-10 items-center lg:items-start text-center lg:text-left space-y-6 lg:space-y-8 animate-fade-in-up ">
+                <div className="flex flex-col justify-center mt-0 lg:mt-10 items-center lg:items-start text-center lg:text-left space-y-6 lg:space-y-8 animate-fade-in-up ">
 
                     {/* Badge */}
                     <div className="inline-flex items-center gap-2 px-4 py-2 lg:px-5 lg:py-2.5 bg-white/10 border border-white/20 rounded-full backdrop-blur-md shadow-sm transition-transform hover:scale-105 duration-300">
