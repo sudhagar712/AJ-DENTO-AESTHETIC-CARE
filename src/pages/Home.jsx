@@ -5,17 +5,25 @@ import Testimonial from '../components/Testimonial'
 import ServicesCard from '../components/ServicesCard'
 import TechnologyS from '../components/TechnologyS'
 import Finalcontent from '../components/Finalcontent'
+import Aboutus from '../components/Aboutus'
+import OurValues from '../components/OurValues'
+
 const Home = () => {
   return (
-     <div>
-    <Banner/>
-    <ServicesCard/>
-    <TechnologyS/>
-       
-    <Stats/>
-     <Testimonial/>
+    <div>
+      <Banner />
+      <Stats />
+      <Aboutus />
+      <OurValues />
 
-   <Finalcontent/>
+      <ServicesCard />
+
+      <TechnologyS />
+
+
+      <Testimonial />
+
+      <Finalcontent />
     </div>
   )
 }

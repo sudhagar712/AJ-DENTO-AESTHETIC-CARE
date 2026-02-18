@@ -19,7 +19,7 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-
+    { name: 'About Us', href: '/#about-us' },
     { name: 'Gallery', href: '/gallery' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
@@ -35,10 +35,23 @@ const Header = () => {
 
   const logoClass = scrolled
     ? '' // Normal logo
-    : 'brightness-0 invert'; // If you're using a dark logo, invert it for dark bg. 
-  // *However*, user provided `logo.png` which might be colored. I'll stick to mostly standard opacity transitions.
-  // Actually, let's just assume the logo looks good on dark or use filter if needed.
-  // Based on previous code, no filter was used, so the logo probably works on both or is white-ish/gold.
+    : 'brightness-0 invert';
+
+  const handleNavClick = (e, link) => {
+    if (link.href.startsWith('/#')) {
+      if (location.pathname === '/') {
+        e.preventDefault();
+        const targetId = link.href.substring(2);
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          setIsOpen(false);
+        }
+      }
+    } else {
+      setIsOpen(false);
+    }
+  };
 
   return (
     <nav
@@ -70,6 +83,7 @@ const Header = () => {
                   <Link
                     key={link.name}
                     to={link.href}
+                    onClick={(e) => handleNavClick(e, link)}
                     className={`text-sm font-bold uppercase tracking-widest transition-all duration-300 relative group py-2 ${isActive
                       ? (scrolled ? 'text-[#4D0013]' : 'text-[#D4AF37]')
                       : textColorClass
@@ -151,7 +165,7 @@ const Header = () => {
                   <Link
                     key={link.name}
                     to={link.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => handleNavClick(e, link)}
                     className={`flex items-center justify-between px-4 py-4 text-lg font-bold rounded-xl transition-all group ${isActive
                       ? 'text-[#D4AF37] bg-[#D4AF37]/5'
                       : 'text-gray-800 hover:text-[#4D0013] hover:bg-gray-50'
