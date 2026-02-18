@@ -19,7 +19,7 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
- 
+
     { name: 'Gallery', href: '/gallery' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
@@ -127,8 +127,14 @@ const Header = () => {
           }`}
       >
         <div className="flex flex-col h-full">
-          <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
-            <span className="text-xl font-bold text-[#4D0013] uppercase tracking-widest">Menu</span>
+          <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-[#4D0013]">
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="AJ Dento" className="h-10 w-auto" />
+              <div className="flex flex-col">
+                <span className="text-yellow-500 font-bold text-sm tracking-widest leading-none">AJ DENTO</span>
+                <span className="text-[#D4AF37] font-medium text-[10px] tracking-[0.2em] leading-none mt-1">AESTHETIC CARE</span>
+              </div>
+            </div>
             <button
               onClick={() => setIsOpen(false)}
               className="p-2 rounded-full hover:bg-gray-200 text-gray-500 transition-colors"
@@ -138,7 +144,7 @@ const Header = () => {
           </div>
 
           <div className="flex-1 overflow-y-auto py-6">
-            <div className="flex flex-col space-y-2 px-6">
+            <div className="flex flex-col  px-6">
               {navLinks.map((link, index) => {
                 const isActive = location.pathname === link.href;
                 return (

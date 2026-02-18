@@ -37,7 +37,9 @@ const Counter = ({ end, duration = 2000 }) => {
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                    observer.disconnect();
+                } else {
+                    setIsVisible(false);
+                    setCount(0);
                 }
             },
             { threshold: 0.1 }
