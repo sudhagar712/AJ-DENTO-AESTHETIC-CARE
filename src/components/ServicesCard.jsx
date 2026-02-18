@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, X } from 'lucide-react';
+import { ArrowUpRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import s1 from "../assets/servicesimg/1.webp"
 import s2 from "../assets/servicesimg/2.jpg"
 import s3 from "../assets/servicesimg/3.jpg"
 import s4 from "../assets/servicesimg/4.jpeg"
 import s5 from "../assets/servicesimg/5.webp"
-import s6 from "../assets/servicesimg/6.jpg"   
-
-
-
+import s6 from "../assets/servicesimg/6.jpg"
 
 
 
@@ -102,43 +99,59 @@ const ServicesCard = () => {
         document.body.style.overflow = 'unset';
     };
 
+    const handleNext = (e) => {
+        e.stopPropagation();
+        const currentIndex = services.findIndex(s => s.id === activeService.id);
+        const nextIndex = (currentIndex + 1) % services.length;
+        setActiveService(services[nextIndex]);
+    };
+
+    const handlePrev = (e) => {
+        e.stopPropagation();
+        const currentIndex = services.findIndex(s => s.id === activeService.id);
+        const prevIndex = (currentIndex - 1 + services.length) % services.length;
+        setActiveService(services[prevIndex]);
+    };
+
     return (
-        <section className="bg-white py-20 px-4 md:px-8">
+
+        <section className="bg-white py-32 px-6 md:px-12">
             <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
                     {services.map((service) => (
                         <div
                             key={service.id}
                             onClick={() => openModal(service)}
-                            className="bg-black border border-[#4D0013]/30 h-80 flex flex-col justify-end cursor-pointer group hover:border-[#D4AF37]/50 transition-all duration-500 relative overflow-hidden rounded-xl"
+                            className="bg-black border border-white/20 h-72 flex flex-col justify-end cursor-pointer group hover:border-[#D4AF37]/50 transition-all duration-700 relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl hover:shadow-[#D4AF37]/10"
                         >
                             {/* Background Image with Gradient Overlay */}
                             <div
-                                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                                className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110 ease-out"
                                 style={{ backgroundImage: `url(${service.image})` }}
                             >
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 group-hover:via-black/50 transition-colors duration-500"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:via-black/60 transition-colors duration-700"></div>
                             </div>
 
                             {/* Content */}
-                            <div className="relative z-10 p-8 transform translate-y-2 transition-transform duration-500 group-hover:translate-y-0">
-                                <h3 className="text-2xl font-serif text-white group-hover:text-[#D4AF37] transition-colors duration-300 drop-shadow-md">
+                            <div className="relative z-10 p-6 transform translate-y-2 transition-transform duration-500 group-hover:translate-y-0 text-center md:text-left">
+                                <h3 className="text-xl md:text-2xl font-serif text-white group-hover:text-[#D4AF37] transition-colors duration-300 drop-shadow-md">
                                     {service.title}
                                 </h3>
-                                <div className="w-12 h-[2px] bg-[#D4AF37]/70 mt-4 mb-4 group-hover:w-20 transition-all duration-300"></div>
 
                                 <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 overflow-hidden">
-                                    <p className="text-gray-300 text-sm font-light tracking-wide drop-shadow-sm mb-4">
+                                    <div className="w-12 h-[1px] bg-[#D4AF37]/70 mt-3 mb-3 mx-auto md:mx-0 group-hover:w-16 transition-all duration-500"></div>
+                                    <p className="text-gray-300 text-xs font-light tracking-wide drop-shadow-sm mb-3 line-clamp-2">
                                         {service.description}
                                     </p>
-                                    <span className="inline-flex items-center gap-2 text-[#D4AF37] text-xs uppercase tracking-widest font-bold">
-                                        Read More <ArrowUpRight size={14} />
+                                    <span className="inline-flex items-center gap-2 text-[#D4AF37] text-[10px] uppercase tracking-[0.2em] font-bold">
+                                        Read More <ArrowUpRight size={12} />
                                     </span>
                                 </div>
                             </div>
 
-                            <div className="absolute top-4 right-4 z-20 p-2 bg-black/20 backdrop-blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <ArrowUpRight className="text-white" size={18} />
+                            {/* Corner Icon */}
+                            <div className="absolute top-4 right-4 z-20 p-2 bg-white/10 backdrop-blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 border border-white/20">
+                                <ArrowUpRight className="text-white" size={16} />
                             </div>
                         </div>
                     ))}
@@ -153,31 +166,52 @@ const ServicesCard = () => {
                         onClick={closeModal}
                     ></div>
 
-                    <div className="relative bg-white w-full max-w-2xl max-h-[85vh] overflow-y-auto rounded-none shadow-2xl animate-fade-in-up">
+                    <div className="relative bg-white w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-3xl shadow-2xl animate-fade-in-up flex flex-col md:flex-row group/modal">
+
+                        {/* Navigation Buttons */}
+                        <button
+                            onClick={handlePrev}
+                            className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-3 bg-white/10 hover:bg-black/50 backdrop-blur-md rounded-full text-white hover:scale-110 transition-all duration-300 border border-white/20 hidden md:block"
+                        >
+                            <ChevronLeft size={24} />
+                        </button>
+                        <button
+                            onClick={handleNext}
+                            className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-3 bg-black/5 hover:bg-black/50 backdrop-blur-md rounded-full text-[#4D0013] hover:text-white hover:scale-110 transition-all duration-300 border border-[#4D0013]/10 hover:border-white/20 hidden md:block"
+                        >
+                            <ChevronRight size={24} />
+                        </button>
+
                         <button
                             onClick={closeModal}
-                            className="absolute top-4 right-4 p-2 bg-gray-100 hover:bg-[#4D0013] hover:text-white transition-colors rounded-full z-10"
+                            className="absolute top-4 right-4 p-2  bg-[#4D0013] text-#4D0013 transition-colors rounded-full z-50"
                         >
                             <X size={20} />
                         </button>
 
-                        {/* Modal Image Header */}
-                        <div className="h-48 md:h-64 w-full relative">
+                        {/* Modal Left: Image */}
+                        <div className="w-full md:w-1/2 h-64 md:h-auto relative">
                             <img
                                 src={activeService.image}
                                 alt={activeService.title}
                                 className="w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                            <div className="absolute bottom-6 left-8 md:left-12">
-                                <span className="text-[#D4AF37] text-xs font-bold tracking-[0.2em] uppercase block mb-1">
-                                    Service Detail
-                                </span>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:hidden"></div>
+
+                            {/* Mobile Nav Overlay */}
+                            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-2 md:hidden">
+                                <button onClick={handlePrev} className="p-2 bg-black/30 rounded-full text-white backdrop-blur-sm"><ChevronLeft size={20} /></button>
+                                <button onClick={handleNext} className="p-2 bg-black/30 rounded-full text-white backdrop-blur-sm"><ChevronRight size={20} /></button>
                             </div>
                         </div>
 
-                        <div className="p-8 md:p-12 pt-6">
-                            <h2 className="text-3xl md:text-4xl font-serif text-[#4D0013] mb-8 leading-tight">
+                        {/* Modal Right: Content */}
+                        <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto bg-white">
+                            <span className="text-[#D4AF37] text-xs font-bold tracking-[0.2em] uppercase block mb-4">
+                                Service Detail
+                            </span>
+
+                            <h2 className="text-3xl md:text-5xl font-serif text-[#4D0013] mb-8 leading-tight">
                                 {activeService.content.title}
                             </h2>
 
@@ -191,7 +225,7 @@ const ServicesCard = () => {
                                 <Link
                                     to="/contact"
                                     onClick={closeModal}
-                                    className="inline-flex items-center gap-3 bg-[#4D0013] text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-[#3a000e] transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 transform duration-300 w-full md:w-auto justify-center"
+                                    className="inline-flex items-center gap-3 bg-[#4D0013] text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-[#3a000e] transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 transform duration-300 w-full md:w-auto justify-center rounded-xl"
                                 >
                                     Book Your Consultation
                                     <ArrowUpRight size={16} />
