@@ -4,44 +4,41 @@ import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 const testimonials = [
     {
         id: 1,
-        name: "Sarah Jenkins",
-        text: "I was always afraid of the dentist, but AJ Dento changed that completely. The team is so gentle and professional. My smile has never looked better!",
-        rating: 5,
+        name: "Shalini",
+        text: "I visited for dental implants. The consultation was detailed, and every step was explained clearly before starting treatment.",
+        rating: 4,
         role: "Regular Patient",
-        initials: "SJ"
+        initials: "S",
+        color: "bg-rose-600"
     },
     {
         id: 2,
-        name: "Michael Chen",
-        text: "Incredible attention to detail. I had a complex root canal procedure, and I felt absolutely no pain. State-of-the-art facility indeed.",
-        rating: 5,
-        role: "Implant Patient",
-        initials: "MC"
+        name: "John",
+        text: "I chose Invisalign here after my assessment. The planning felt precise, and the process was structured.",
+        rating: 4,
+        role: "Orthodontics",
+        initials: "J",
+        color: "bg-blue-600"
     },
     {
         id: 3,
-        name: "Priya Sharma",
-        text: "The aesthetic results are beyond my expectations. Dr. AJ helps you understand every step. Truly the best dental clinic in Anna Nagar.",
+        name: "Smriti",
+        text: "My root canal treatment was handled professionally. The pain was addressed immediately, and follow-up was systematic.",
         rating: 5,
         role: "Cosmetic Dentistry",
-        initials: "PS"
+        initials: "S",
+        color: "bg-emerald-600"
     },
     {
         id: 4,
-        name: "David Thompson",
-        text: "Brought my kids here and they actually enjoyed the visit! The staff is wonderful with children. Highly recommended for families.",
+        name: "Nirmala",
+        text: "My child’s dental checkup was thorough. The approach was calm and well explained.",
         rating: 5,
         role: "Parent",
-        initials: "DT"
+        initials: "N",
+        color: "bg-purple-600"
     },
-    {
-        id: 5,
-        name: "Anita Raj",
-        text: "Professional, clean, and very welcoming. The Invisalign treatment was smooth and effective. Thank you for my new smile!",
-        rating: 5,
-        role: "Orthodontics",
-        initials: "AR"
-    }
+
 ];
 
 const Testimonial = () => {
@@ -94,11 +91,7 @@ const Testimonial = () => {
 
     return (
         <section className="relative py-24 lg:py-32 overflow-hidden bg-gray-50">
-            {/* Background Decor */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[100px]"></div>
-                <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#4D0013]/5 rounded-full blur-[120px]"></div>
-            </div>
+
 
             <div className="relative max-w-7xl mx-auto px-4 md:px-8">
 
@@ -168,9 +161,9 @@ const Testimonial = () => {
                                         {/* Author Profile */}
                                         <div className="flex items-center gap-4 mt-auto border-t border-gray-100 pt-6">
                                             {/* Avatar / Initials */}
-                                            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#4D0013] to-[#800020] p-0.5 shadow-md shrink-0 group-hover:scale-105 transition-transform duration-300">
-                                                <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-                                                    <span className="text-[#4D0013] font-bold text-lg">{testimonial.initials}</span>
+                                            <div className="w-14 h-14 rounded-full bg-[#D4AF37] p-0.5 shadow-md shrink-0 group-hover:scale-105 transition-transform duration-300">
+                                                <div className={`w-full h-full rounded-full ${testimonial.color} flex items-center justify-center`}>
+                                                    <span className="text-white font-bold text-lg">{testimonial.initials}</span>
                                                 </div>
                                             </div>
 
@@ -178,9 +171,7 @@ const Testimonial = () => {
                                                 <cite className="not-italic font-bold text-[#4D0013] text-lg block mb-0.5">
                                                     {testimonial.name}
                                                 </cite>
-                                                <span className="text-[#D4AF37] text-xs font-bold uppercase tracking-wider block">
-                                                    {testimonial.role}
-                                                </span>
+
                                             </div>
                                         </div>
                                     </div>

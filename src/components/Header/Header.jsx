@@ -71,8 +71,8 @@ const Header = () => {
                     key={link.name}
                     to={link.href}
                     className={`text-sm font-bold uppercase tracking-widest transition-all duration-300 relative group py-2 ${isActive
-                        ? (scrolled ? 'text-[#4D0013]' : 'text-[#D4AF37]')
-                        : textColorClass
+                      ? (scrolled ? 'text-[#4D0013]' : 'text-[#D4AF37]')
+                      : textColorClass
                       }`}
                   >
                     {link.name}
@@ -88,7 +88,9 @@ const Header = () => {
 
             {/* CTA Button */}
             <a
-              href="#"
+              href="https://wa.me/918098449999?text=Hi,%20I%20would%20like%20to%20book%20an%20appointment."
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-gradient-to-r from-[#D4AF37] to-[#B5952F] text-[#4D0013] px-7 py-3 rounded-full font-bold text-sm shadow-[0_4px_14px_rgba(212,175,55,0.4)] hover:shadow-[0_6px_20px_rgba(212,175,55,0.6)] transform hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2 group"
             >
               <svg viewBox="0 0 24 24" className="w-5 h-5 fill-[#4D0013]" xmlns="http://www.w3.org/2000/svg">
@@ -145,8 +147,8 @@ const Header = () => {
                     to={link.href}
                     onClick={() => setIsOpen(false)}
                     className={`flex items-center justify-between px-4 py-4 text-lg font-bold rounded-xl transition-all group ${isActive
-                        ? 'text-[#D4AF37] bg-[#D4AF37]/5'
-                        : 'text-gray-800 hover:text-[#4D0013] hover:bg-gray-50'
+                      ? 'text-[#D4AF37] bg-[#D4AF37]/5'
+                      : 'text-gray-800 hover:text-[#4D0013] hover:bg-gray-50'
                       }`}
                   >
                     {link.name}
@@ -160,7 +162,9 @@ const Header = () => {
 
           <div className="p-6 border-t border-gray-100 bg-gray-50">
             <a
-              href="#"
+              href="https://wa.me/918098449999?text=Hi,%20I%20would%20like%20to%20book%20an%20appointment."
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full bg-[#4D0013] text-white px-6 py-4 rounded-xl font-bold text-center shadow-lg hover:bg-[#3a000e] transition-colors flex items-center justify-center gap-3"
             >
               <svg viewBox="0 0 24 24" className="w-5 h-5 fill-white" xmlns="http://www.w3.org/2000/svg">

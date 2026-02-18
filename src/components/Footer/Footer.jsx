@@ -1,10 +1,11 @@
+import logo from '../../assets/logo.png';
 import { Phone, MapPin, MessageCircle } from "lucide-react"
 
 export default function Footer() {
 
     return (
 
-        <footer className="text-white">
+        <footer className=" text-white">
 
             {/* Top Section */}
 
@@ -13,11 +14,14 @@ export default function Footer() {
                 {/* Brand */}
                 <div>
 
-                    <h2 className="text-2xl font-semibold tracking-wide">
+                    {/* Logo Section */}
+                    <img
+                        src={logo}
+                        alt="AJ Dento Aesthetic"
+                        className="h-20 w-auto object-contain mb-6 brightness-0 invert"
+                    />
 
-                        AJ Dento Aesthetic Care
 
-                    </h2>
 
                     <p className="mt-4 text-gray-400 text-sm leading-relaxed">
 
@@ -129,7 +133,7 @@ export default function Footer() {
                         </div>
 
 
-                       
+
 
 
                     </div>
@@ -168,7 +172,7 @@ export default function Footer() {
             </div>
 
 
-        </footer>
+        </footer >
 
     )
 
