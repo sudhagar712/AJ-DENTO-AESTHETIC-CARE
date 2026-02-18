@@ -6,7 +6,7 @@ const Header = () => {
 
   return (
     <nav className="fixed w-full z-50 top-0 left-0 bg-transparent backdrop-blur-sm py-4">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
 
           {/* Logo Section */}
@@ -18,11 +18,11 @@ const Header = () => {
           <div className="hidden lg:block">
             <div className="flex items-center gap-8 bg-yellow-100 text-black rounded-full p-1 pl-6 shadow-lg border border-white/10">
               <div className="flex items-baseline space-x-6 mr-4">
-                <a href="#" className="text-black hover:text-red-500 text-sm font-medium transition-colors duration-300">Home</a>
-                <a href="#" className="text-black hover:text-red-500 text-sm font-medium transition-colors duration-300">About</a>
-                <a href="#" className="text-black hover:text-red-500 text-sm font-medium transition-colors duration-300">Gallery</a>
-                <a href="#" className="text-black hover:text-red-500 text-sm font-medium transition-colors duration-300">Blog</a>
-                <a href="#" className="text-black hover:text-red-500 text-sm font-medium transition-colors duration-300">Contact</a>
+                <a href="#" className="text-black  hover:text-red-500 text-sm font-bold transition-colors duration-300">Home</a>
+                <a href="#" className="text-black hover:text-red-500 text-sm font-bold transition-colors duration-300">About</a>
+                <a href="#" className="text-black hover:text-red-500 text-sm font-bold transition-colors duration-300">Gallery</a>
+                <a href="#" className="text-black hover:text-red-500 text-sm font-bold transition-colors duration-300">Blog</a>
+                <a href="#" className="text-black hover:text-red-500 text-sm font-bold transition-colors duration-300">Contact</a>
               </div>
               <a href="#" className="bg-white text-[#4D0013] px-5 py-2.5 rounded-full font-bold text-sm hover:bg-gray-100 transition-all duration-300 flex items-center gap-2 shadow-md">
                 <svg viewBox="0 0 24 24" className="w-5 h-5 fill-green-500" xmlns="http://www.w3.org/2000/svg">

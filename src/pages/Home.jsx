@@ -1,9 +1,14 @@
 import React from 'react'
 import Banner from '../components/Banner'
+import Stats from '../components/Stats'
+import Testimonial from '../components/Testimonial'
 const Home = () => {
   return (
-     <div className="pt-5  mt-[70px] md:mt-[100px] lg:mt-[10px] max-w-7xl mx-auto">
+     <div>
     <Banner/>
+    <Stats/>
+    <Testimonial/>
+   
     </div>
   )
 }
