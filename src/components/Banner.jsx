@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
-import bannerpic from '../assets/bannerpic.png';
+import { ChevronRight, Stethoscope } from 'lucide-react';
+import animationv from '../assets/animationv2.mp4';
 
 const Banner = () => {
     return (
@@ -32,7 +32,7 @@ const Banner = () => {
                         </h1>
                         <p className="text-base md:text-lg lg:text-xl text-gray-200 font-light max-w-md lg:max-w-lg mx-auto lg:mx-0 leading-relaxed">
                             Crafting Smiles with Precision. <br className="hidden md:block" />
-                            <span className="italic text-[#D4AF37] font-medium block mt-2">"Guardian emerging from shadow"</span>
+
                         </p>
                     </div>
 
@@ -52,13 +52,17 @@ const Banner = () => {
                 </div>
 
                 {/* Right Column: Hero Image */}
-                <div className="relative hidden md:hidden lg:block w-full flex justify-center items-center text-center mt-5">
-                    <div className="relative w-full max-w-[280px] md:max-w-md lg:max-w-xl aspect-square flex items-center justify-center">
+                <div className="relative w-full flex justify-center items-center text-center mt-5">
+                    <div className="relative w-full max-w-full md:max-w-md lg:max-w-xl aspect-square flex items-center justify-center">
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10 rounded-full blur-3xl -z-10"></div>
-                        <img
-                            src={bannerpic}
-                            alt="Advanced Dental Aesthetic Care"
-                            className="relative z-10 w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform hover:scale-105 transition-transform duration-700 ease-out"
+
+                        <video
+                            src={animationv}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="relative z-10 w-full h-full md:h-[500px] md:w-[500px] object-cover rounded-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform hover:scale-105 transition-transform duration-700 ease-out"
                         />
                     </div>
                 </div>

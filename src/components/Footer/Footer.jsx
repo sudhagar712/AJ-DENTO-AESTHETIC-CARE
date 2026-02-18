@@ -42,10 +42,10 @@ export default function Footer() {
                         </li>
                         
                         <li>
-                            <Link to="/services" className="hover:text-[#D4AF37] hover:translate-x-1 transition-all inline-block">Services</Link>
+                            <Link to="/gallery" className="hover:text-[#D4AF37] hover:translate-x-1 transition-all inline-block">Gallery</Link>
                         </li>
                         <li>
-                            <Link to="/contact" className="hover:text-[#D4AF37] hover:translate-x-1 transition-all inline-block">Contact</Link>
+                            <Link to="/blog" className="hover:text-[#D4AF37] hover:translate-x-1 transition-all inline-block">Blog</Link>
                         </li>
                     </ul>
                 </div>
@@ -58,16 +58,16 @@ export default function Footer() {
 
                     <ul className="space-y-3 text-sm">
                         <li>
-                            <Link to="/services/root-canal" className="hover:text-[#D4AF37] hover:translate-x-1 transition-all inline-block">Root Canal Treatment</Link>
+                            <Link to="#" className="hover:text-[#D4AF37] hover:translate-x-1 transition-all inline-block">Root Canal Treatment</Link>
                         </li>
                         <li>
-                            <Link to="/services/dental-implants" className="hover:text-[#D4AF37] hover:translate-x-1 transition-all inline-block">Dental Implants</Link>
+                            <Link to="#" className="hover:text-[#D4AF37] hover:translate-x-1 transition-all inline-block">Dental Implants</Link>
                         </li>
                         <li>
-                            <Link to="/services/invisalign" className="hover:text-[#D4AF37] hover:translate-x-1 transition-all inline-block">Invisalign</Link>
+                            <Link to="#" className="hover:text-[#D4AF37] hover:translate-x-1 transition-all inline-block">Invisalign</Link>
                         </li>
                         <li>
-                            <Link to="/services/cosmetic-dentistry" className="hover:text-[#D4AF37] hover:translate-x-1 transition-all inline-block">Cosmetic Dentistry</Link>
+                            <Link to="#" className="hover:text-[#D4AF37] hover:translate-x-1 transition-all inline-block">Cosmetic Dentistry</Link>
                         </li>
                     </ul>
                 </div>

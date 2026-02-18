@@ -129,12 +129,7 @@
     font-family: 'Poppins', sans-serif;
 
     /* ✅ EXACT LOGO MATCH GRADIENT */
-    background: linear-gradient(
-      135deg,
-      #6A0023 30%,
-      #880334 40%,
-      #9B1B4D 50%
-    );
+    background:#642332 ;
 
     min-height: 100vh;
     width: 100%;
