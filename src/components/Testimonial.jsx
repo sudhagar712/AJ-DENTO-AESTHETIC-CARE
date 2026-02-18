@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Quote, ChevronLeft, ChevronRight, User } from 'lucide-react';
+import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const testimonials = [
     {
@@ -58,10 +58,10 @@ const Testimonial = () => {
             }
             setItemsPerPage(newItemsPerPage);
 
-            // Ensure we don't show empty space if resizing from small layout (high index) to large layout (lower max index)
-            setCurrentIndex((prev) => {
-                const maxIndex = testimonials.length - newItemsPerPage;
-                return Math.min(prev, maxIndex < 0 ? 0 : maxIndex);
+            // Adjust current index to prevent overflow when resizing
+            setCurrentIndex(prev => {
+                const maxIdx = testimonials.length - newItemsPerPage;
+                return Math.min(prev, maxIdx < 0 ? 0 : maxIdx);
             });
         };
 
@@ -70,51 +70,57 @@ const Testimonial = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    const maxIndex = Math.max(0, testimonials.length - itemsPerPage);
+
     const nextSlide = () => {
-        setCurrentIndex((prevIndex) => {
-            const maxIndex = testimonials.length - itemsPerPage;
-            return prevIndex >= maxIndex ? 0 : prevIndex + 1;
-        });
+        setCurrentIndex((prevIndex) =>
+            prevIndex >= maxIndex ? 0 : prevIndex + 1
+        );
     };
 
     const prevSlide = () => {
-        setCurrentIndex((prevIndex) => {
-            const maxIndex = testimonials.length - itemsPerPage;
-            return prevIndex <= 0 ? maxIndex : prevIndex - 1;
-        });
+        setCurrentIndex((prevIndex) =>
+            prevIndex <= 0 ? maxIndex : prevIndex - 1
+        );
     };
 
     // Auto-slide functionality
     useEffect(() => {
         const interval = setInterval(() => {
             nextSlide();
-        }, 5000);
+        }, 6000);
         return () => clearInterval(interval);
-    }, [itemsPerPage]);
+    }, [itemsPerPage, maxIndex]);
 
     return (
-        <section className="py-20 lg:py-32 relative overflow-hidden">
-           
-            <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <section className="relative py-24 lg:py-32 overflow-hidden bg-gray-50">
+            {/* Background Decor */}
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[100px]"></div>
+                <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#4D0013]/5 rounded-full blur-[120px]"></div>
+            </div>
+
+            <div className="relative max-w-7xl mx-auto px-4 md:px-8">
 
                 {/* Header */}
-                <div className="text-center mb-16 space-y-4">
-                    <span className="text-[#D4AF37] font-bold tracking-wider uppercase text-sm">Testimonials</span>
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-[#4D0013]">
-                        What Our Patients Say
+                <div className="text-center mb-16 lg:mb-20 space-y-4">
+                    <span className="text-[#D4AF37] font-bold tracking-[0.2em] uppercase text-sm animate-fade-in">Testimonials</span>
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-[#4D0013] drop-shadow-sm">
+                        Stories of <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#B5952F]">Smiles</span>
                     </h2>
-                    <div className="w-20 h-1.5 bg-[#D4AF37] mx-auto rounded-full"></div>
-                    <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
-                        Your smile is our greatest reward. Hear from those who have experienced the AJ Dento difference.
+                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto rounded-full"></div>
+                    <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed font-light">
+                        Real experiences from our valued patients. Discover why AJ Dento is the trusted choice for dental care.
                     </p>
                 </div>
 
-                {/* Carousel Container */}
+                {/* Carousel */}
                 <div className="relative">
-                    {/* Nav Arrows - Desktop positioned outside, Mobile inside/overlay */}
+
+                    {/* Navigation Buttons (Desktop: Outside, Mobile: Hidden/Bottom) */}
                     <button
                         onClick={prevSlide}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 p-3 rounded-full bg-white shadow-lg text-[#4D0013] hover:bg-[#4D0013] hover:text-white transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+                        className="hidden md:flex absolute -left-4 lg:-left-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl border border-gray-100 items-center justify-center text-[#4D0013] hover:bg-[#4D0013] hover:text-white hover:scale-110 transition-all duration-300 group focus:outline-none"
                         aria-label="Previous testimonial"
                     >
                         <ChevronLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
@@ -122,52 +128,59 @@ const Testimonial = () => {
 
                     <button
                         onClick={nextSlide}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 p-3 rounded-full bg-white shadow-lg text-[#4D0013] hover:bg-[#4D0013] hover:text-white transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+                        className="hidden md:flex absolute -right-4 lg:-right-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-xl border border-gray-100 items-center justify-center text-[#4D0013] hover:bg-[#4D0013] hover:text-white hover:scale-110 transition-all duration-300 group focus:outline-none"
                         aria-label="Next testimonial"
                     >
                         <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                     </button>
 
-                    {/* Slider Track Wrapper */}
-                    <div className="overflow-hidden py-10 -my-10 px-2 -mx-2">
-                        {/* Track */}
+                    {/* Slider Wrapper */}
+                    <div className="overflow-hidden px-2 -mx-2 pb-12 -mb-12"> {/* Padding Bottom for shadow */}
                         <div
-                            className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1.0)]"
+                            className="flex transition-transform duration-700 cubic-bezier(0.25, 1, 0.5, 1)"
                             style={{ transform: `translateX(-${currentIndex * (100 / itemsPerPage)}%)` }}
                         >
                             {testimonials.map((testimonial) => (
                                 <div
                                     key={testimonial.id}
-                                    className="flex-shrink-0 px-4"
+                                    className="flex-shrink-0 px-3 lg:px-4"
                                     style={{ width: `${100 / itemsPerPage}%` }}
                                 >
-                                    <div className="bg-white rounded-2xl p-8 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] transition-all duration-300 h-full border border-gray-100 flex flex-col relative group">
+                                    <div className="h-full bg-white rounded-3xl p-8 lg:p-10 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-5px_rgba(0,0,0,0.1)] transition-all duration-500 border border-gray-100 hover:border-[#D4AF37]/30 group flex flex-col relative transform hover:-translate-y-2">
 
-                                        {/* Quote Icon Watermark */}
-                                        <div className="absolute top-6 right-8 text-[#D4AF37]/10 group-hover:text-[#D4AF37]/30 transition-colors duration-500">
-                                            <Quote className="w-16 h-16 fill-current rotate-180" />
+                                        {/* Large Quote Mark */}
+                                        <div className="absolute top-6 right-8 text-[#D4AF37]/10 group-hover:text-[#D4AF37]/20 transition-colors duration-500 scale-150 transform origin-top-right">
+                                            <Quote size={64} fill="currentColor" className="rotate-180" />
                                         </div>
 
-                                        {/* Rating */}
-                                        <div className="flex gap-1 mb-6 text-[#D4AF37]">
+                                        {/* Rating Stars */}
+                                        <div className="flex gap-1 mb-6">
                                             {[...Array(testimonial.rating)].map((_, i) => (
-                                                <Star key={i} className="w-5 h-5 fill-current" />
+                                                <Star key={i} size={18} className="fill-[#D4AF37] text-[#D4AF37] drop-shadow-sm" />
                                             ))}
                                         </div>
 
-                                        {/* Content */}
-                                        <p className="text-gray-600 leading-relaxed text-lg mb-8 flex-grow italic relative z-10">
+                                        {/* Testimonial Text */}
+                                        <blockquote className="text-gray-600 leading-relaxed text-lg mb-8 flex-grow font-light italic relative z-10">
                                             "{testimonial.text}"
-                                        </p>
+                                        </blockquote>
 
-                                        {/* User Info */}
+                                        {/* Author Profile */}
                                         <div className="flex items-center gap-4 mt-auto border-t border-gray-100 pt-6">
-                                            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#4D0013] to-[#800020] flex items-center justify-center text-white font-bold text-lg shadow-md shrink-0">
-                                                {testimonial.initials}
+                                            {/* Avatar / Initials */}
+                                            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#4D0013] to-[#800020] p-0.5 shadow-md shrink-0 group-hover:scale-105 transition-transform duration-300">
+                                                <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
+                                                    <span className="text-[#4D0013] font-bold text-lg">{testimonial.initials}</span>
+                                                </div>
                                             </div>
+
                                             <div>
-                                                <h4 className="font-bold text-[#4D0013] text-lg">{testimonial.name}</h4>
-                                                <p className="text-[#D4AF37] text-xs font-bold uppercase tracking-wide">{testimonial.role}</p>
+                                                <cite className="not-italic font-bold text-[#4D0013] text-lg block mb-0.5">
+                                                    {testimonial.name}
+                                                </cite>
+                                                <span className="text-[#D4AF37] text-xs font-bold uppercase tracking-wider block">
+                                                    {testimonial.role}
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -176,13 +189,13 @@ const Testimonial = () => {
                         </div>
                     </div>
 
-                    {/* Dots Indicators */}
-                    <div className="flex justify-center gap-2 mt-8 lg:mt-12">
-                        {Array.from({ length: testimonials.length - itemsPerPage + 1 }).map((_, idx) => (
+                    {/* Pagination Dots */}
+                    <div className="flex justify-center gap-3 mt-8 lg:mt-12">
+                        {Array.from({ length: Math.max(1, testimonials.length - itemsPerPage + 1) }).map((_, idx) => (
                             <button
                                 key={idx}
                                 onClick={() => setCurrentIndex(idx)}
-                                className={`transition-all duration-300 rounded-full h-2.5 ${currentIndex === idx ? 'w-8 bg-[#D4AF37]' : 'w-2.5 bg-gray-300 hover:bg-[#D4AF37]/50'
+                                className={`transition-all duration-300 rounded-full h-3 ${currentIndex === idx ? 'w-10 bg-[#D4AF37] shadow-md scale-110' : 'w-3 bg-gray-300 hover:bg-[#D4AF37]/40'
                                     }`}
                                 aria-label={`Go to slide ${idx + 1}`}
                             />
