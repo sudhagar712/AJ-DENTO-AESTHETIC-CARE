@@ -6,7 +6,7 @@ export default function Footer() {
 
     return (
 
-        <footer className="bg-gradient-to-b from-white to-gray-400 text-gray-800 shadow-lg border-t-2 border-yellow-600">
+        <footer className=" text-white shadow-lg border-t-10 border-white mt-4">
 
             {/* Top Section */}
             <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
@@ -19,11 +19,11 @@ export default function Footer() {
                         <img
                             src={logo}
                             alt="AJ Dento Aesthetic"
-                            className="h-20 w-auto object-contain mb-6 mix-blend-multiply"
+                            className="h-20 w-auto object-contain mb-6 "
                         />
                     </Link>
 
-                    <p className="mt-4 text-gray-600 text-sm leading-relaxed font-light">
+                    <p className="mt-4 text-white text-sm leading-relaxed font-light">
                         Crafting Smiles with Precision. <br />
                         Premium dental care focused on early diagnosis,
                         precision treatment, and long-term oral health.
@@ -94,15 +94,13 @@ export default function Footer() {
 
             {/* Bottom */}
             <div className="border-t border-gray-300">
-                <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 font-light gap-4">
+                <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-center items-center text-sm text-yellow-500 font-light gap-4">
 
                     <p>
                         © 2026 AJ Dento Aesthetic Care. All rights reserved.
                     </p>
 
-                    <p className="flex items-center gap-1">
-                        Developed by <span className="font-medium text-[#4D0013]">Sudhagar</span>.
-                    </p>
+                   
 
                 </div>
             </div>

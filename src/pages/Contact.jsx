@@ -61,58 +61,69 @@ const Contact = () => {
             </div>
 
             {/* --- Main Content Section --- */}
-            <div className="py-20 lg:py-28 relative bg-black">
+            <div className="py-20 lg:py-28  relative">
                 {/* Decorative background element */}
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37]/5 rounded-bl-[300px] -z-10 blur-3xl"></div>
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gray-50 rounded-bl-[200px] -z-10"></div>
 
                 <div className="max-w-7xl mx-auto px-4 md:px-8">
                     <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
-                        {/* --- Left Side: Minimalist Premium Copy --- */}
-                        <div className="space-y-10 pt-10">
+                        {/* --- Left Side: High Impact Copy --- */}
+                        <div className="space-y-12 pt-10">
 
                             <div className="space-y-6">
-                                <h2 className="text-5xl md:text-6xl font-serif text-white leading-tight tracking-tight">
-                                    Book Your <span className="text-[#D4AF37] italic">Visit</span>
+                                <h2 className="text-5xl md:text-6xl font-extrabold text-white leading-tight">
+                                    Let's Connect
+
                                 </h2>
 
-                                <p className="text-lg md:text-xl text-gray-300 font-light max-w-lg leading-relaxed">
-                                    Your journey to a confident smile begins here. Schedule your consultation with our expert team and experience world-class dental care.
-                                </p>
-                            </div>
-
-                            {/* Trust Indicators - Simplified */}
-                            <div className="grid grid-cols-1 gap-8 pt-4">
-                                <div className="flex items-start gap-5 group">
-                                    <div className="w-10 h-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30 group-hover:bg-[#D4AF37] transition-all duration-300">
-                                        <CheckCircle className="w-5 h-5 text-[#D4AF37] group-hover:text-[#4D0013]" />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-serif text-white text-lg mb-1">Priority Attention</h4>
-                                        <p className="text-sm text-gray-400 font-light">Zero waiting time for scheduled visits</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start gap-5 group">
-                                    <div className="w-10 h-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center border border-[#D4AF37]/30 group-hover:bg-[#D4AF37] transition-all duration-300">
-                                        <CheckCircle className="w-5 h-5 text-[#D4AF37] group-hover:text-[#4D0013]" />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-serif text-white text-lg mb-1">Tailored Care</h4>
-                                        <p className="text-sm text-gray-400 font-light">Personalized treatment plans for you</p>
-                                    </div>
+                                <div className="space-y-4">
+                                    <p className="text-xl md:text-2xl text-white font-thin border-l-4 border-[#D4AF37] pl-6 py-1">
+                                        Wait until discomfort forces action.
+                                    </p>
+                                    <p className="text-xl md:text-2xl text-white font-thin border-l-4 border-gray-200 pl-6 py-1">
+                                        Or take control before it does.
+                                    </p>
                                 </div>
                             </div>
 
-                            {/* Simple Divider */}
-                            <div className="h-px w-24 bg-gradient-to-r from-[#D4AF37] to-transparent opacity-50"></div>
+                            {/* Trust Indicators */}
+                            <div className="grid grid-cols-1 gap-6 pt-8">
+                                <div className="flex items-center gap-4 group">
+                                    <div className="w-12 h-12 bg-[#FFF8E1] rounded-full flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-white transition-all duration-300">
+                                        <CheckCircle className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-white text-lg">Zero Waiting Time</h4>
+                                        <p className="text-sm text-yellow-500">For scheduled priority appointments</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-4 group">
+                                    <div className="w-12 h-12 bg-[#FFF8E1] rounded-full flex items-center justify-center text-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-white transition-all duration-300">
+                                        <CheckCircle className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-white text-lg">Detailed Consultation</h4>
+                                        <p className="text-sm text-yellow-500">Comprehensive analysis & treatment plan</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Location Snippet */}
+                            <div className="flex items-center gap-3 text-gray-500 text-sm mt-8 border-t border-gray-100 pt-8">
+                                <MapPin className="w-4 h-4 text-[#D4AF37]" />
+                                <span className="text-white">No. 12, 1st Avenue, Anna Nagar East, Chennai</span>
+                            </div>
+
                         </div>
 
+                        {/* --- Right Side: Revenue Focused Form --- */}
                         {/* --- Right Side: Revenue Focused Form --- */}
                         <div className="relative group perspective-1000">
                             {/* Decorative Glow */}
                             <div className="absolute -inset-1 bg-gradient-to-r from-[#D4AF37] to-[#4D0013] rounded-[2rem] blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
 
-                            <div className="relative bg-black/70 rounded-[2rem] p-8 md:p-12 shadow-2xl border border-white/10 overflow-hidden backdrop-blur-xl">
+                            <div className="relative bg-[#1a1a1a] rounded-[2rem] p-8 md:p-12 shadow-2xl border border-white/10 overflow-hidden backdrop-blur-xl">
 
                                 {/* Inner Texture */}
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#D4AF37]/5 to-transparent rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
@@ -227,120 +238,28 @@ const Contact = () => {
                         </div>
                     </div>
                 </div>
-                {/* --- Local Signal Section (SEO + Map) --- */}
-                <div className="mt-24 max-w-7xl mx-auto px-4">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-[#4D0013] mb-4">Visit AJ Dento Aesthetic Care – Anna Nagar</h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">
-                            Experience world-class dental care in the heart of Chennai. We are conveniently located in Anna Nagar East.
-                        </p>
-                    </div>
+                  <div className="flex flex-col items-center justify-center mt-10 gap-3">
+ <h1 className="text-4xl font-bold text-center " >Visit us</h1>
+                  <span className="text-xl font-bold text-center" >Find us map location</span>
+                  </div>
+                 
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
-                        {/* Left Column: Contact Details & Hours */}
-                        <div className="space-y-8">
-                            <div className="space-y-4">
-                                <h3 className="text-xl font-bold text-[#D4AF37] uppercase tracking-wider flex items-center gap-2">
-                                    <MapPin className="w-5 h-5" /> Location
-                                </h3>
-                                <address className="not-italic text-gray-700 leading-relaxed text-lg">
-                                    <strong className="block text-gray-900">AJ Dento Aesthetic Care</strong>
-                                    No. 12, 1st Avenue, L Block,<br />
-                                    Anna Nagar East,<br />
-                                    Chennai, Tamil Nadu 600102
-                                </address>
-                            </div>
-
-                            <div className="space-y-4">
-                                <h3 className="text-xl font-bold text-[#D4AF37] uppercase tracking-wider flex items-center gap-2">
-                                    <Clock className="w-5 h-5" /> Operating Hours
-                                </h3>
-                                <ul className="space-y-2 text-gray-700">
-                                    <li className="flex justify-between border-b border-dashed border-gray-200 pb-2">
-                                        <span>Monday - Saturday</span>
-                                        <span className="font-semibold">10:00 AM - 8:30 PM</span>
-                                    </li>
-                                    <li className="flex justify-between border-b border-dashed border-gray-200 pb-2">
-                                        <span>Sunday</span>
-                                        <span className="font-semibold text-[#4D0013]">By Appointment Only</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div className="space-y-4">
-                                <h3 className="text-xl font-bold text-[#D4AF37] uppercase tracking-wider flex items-center gap-2">
-                                    <Phone className="w-5 h-5" /> Contact
-                                </h3>
-                                <div className="flex flex-col gap-2">
-                                    <a href="tel:+918098449999" className="text-lg font-medium text-gray-900 hover:text-[#D4AF37] transition-colors">
-                                        +91 80984 49999
-                                    </a>
-                                    <a href="mailto:contact@ajdento.com" className="text-lg font-medium text-gray-900 hover:text-[#D4AF37] transition-colors">
-                                        contact@ajdento.com
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Right Column: Map Embed */}
-                        <div className="w-full h-[400px] rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.175116744383!2d80.22129727409252!3d13.092089512316496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526431d49b77f9%3A0xcbbd307d145ba8fa!2s2%2F12%2C%201st%20Ave%2C%20L%20Block%2C%20Annanagar%20East%2C%20Chennai%2C%20Tamil%20Nadu%20600102!5e0!3m2!1sen!2sin!4v1708256306000!5m2!1sen!2sin"
-                                width="100%"
-                                height="100%"
-                                style={{ border: 0, filter: 'grayscale(100%) contrast(1.2) brightness(0.9)' }}
-                                allowFullScreen=""
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                                title="AJ Dento Aesthetic Care Location"
-                            ></iframe>
-                        </div>
-                    </div>
+                {/* iframe map */}
+                {/* iframe map - Centered & Resized */}
+                <div className="w-full max-w-4xl mx-auto h-[350px] md:h-[400px] mb-10 mt-10 rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
+                      
+                  
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.175116744383!2d80.22129727409252!3d13.092089512316496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526431d49b77f9%3A0xcbbd307d145ba8fa!2s2%2F12%2C%201st%20Ave%2C%20L%20Block%2C%20Annanagar%20East%2C%20Chennai%2C%20Tamil%20Nadu%20600102!5e0!3m2!1sen!2sin!4v1708256306000!5m2!1sen!2sin"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0, filter: 'grayscale(100%) contrast(1.2) brightness(0.9)' }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="AJ Dento Aesthetic Care Location"
+                    ></iframe>
                 </div>
-
-                {/* Structured Data for Local SEO */}
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Dentist",
-                        "name": "AJ Dento Aesthetic Care",
-                        "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09",
-                        "url": "https://ajdento.com",
-                        "telephone": "+918098449999",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "streetAddress": "No. 12, 1st Avenue, L Block, Anna Nagar East",
-                            "addressLocality": "Chennai",
-                            "addressRegion": "TN",
-                            "postalCode": "600102",
-                            "addressCountry": "IN"
-                        },
-                        "geo": {
-                            "@type": "GeoCoordinates",
-                            "latitude": 13.0920895,
-                            "longitude": 80.2212973
-                        },
-                        "openingHoursSpecification": [
-                            {
-                                "@type": "OpeningHoursSpecification",
-                                "dayOfWeek": [
-                                    "Monday",
-                                    "Tuesday",
-                                    "Wednesday",
-                                    "Thursday",
-                                    "Friday",
-                                    "Saturday"
-                                ],
-                                "opens": "10:00",
-                                "closes": "20:30"
-                            }
-                        ],
-                        "sameAs": [
-                            "https://www.facebook.com/ajdento",
-                            "https://www.instagram.com/ajdento"
-                        ]
-                    })}
-                </script>
             </div>
         </div>
     );
