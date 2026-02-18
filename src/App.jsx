@@ -5,7 +5,9 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import FloatingActions from './components/FloatingActions'
 import Contact from './pages/Contact'
-import ScrollToTop from './components/ScrollToTop'
+import ScrollToTop from './components/ScrollToTop'        
+import Gallery from './pages/Gallery'
+import Blog from './pages/Blog'
 const App = () => {
   return (
     <div className=''>
@@ -15,6 +17,8 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/gallery' element={<Gallery />} />
+          <Route path='/blog' element={<Blog />} />
         </Routes>
         <Footer />
         <FloatingActions />

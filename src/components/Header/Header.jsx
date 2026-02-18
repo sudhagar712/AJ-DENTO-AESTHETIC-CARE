@@ -19,9 +19,9 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '#' },
-    { name: 'Gallery', href: '#' },
-    { name: 'Blog', href: '#' },
+ 
+    { name: 'Gallery', href: '/gallery' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -42,7 +42,7 @@ const Header = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 top-0 left-0 transition-all duration-500 font-sans ${scrolled
+      className={`fixed w-full z-50 top-0 left-0 transition-all duration-500  ${scrolled
         ? 'bg-white shadow-lg py-3'
         : 'bg-transparent py-5 lg:py-6'
         }`}
