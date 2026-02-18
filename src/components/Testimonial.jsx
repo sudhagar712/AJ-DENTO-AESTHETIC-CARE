@@ -130,53 +130,94 @@ const Testimonial = () => {
                     {/* Slider Wrapper */}
                     <div className="overflow-hidden px-2 -mx-2 pb-12 -mb-12"> {/* Padding Bottom for shadow */}
                         <div
-                            className="flex transition-transform duration-700 cubic-bezier(0.25, 1, 0.5, 1)"
+                            className="flex transition-transform duration-700 cubic-bezier(0.25, 1, 0.5, 1) py-10"
                             style={{ transform: `translateX(-${currentIndex * (100 / itemsPerPage)}%)` }}
                         >
-                            {testimonials.map((testimonial) => (
-                                <div
-                                    key={testimonial.id}
-                                    className="flex-shrink-0 px-3 lg:px-4"
-                                    style={{ width: `${100 / itemsPerPage}%` }}
-                                >
-                                    <div className="h-full bg-white rounded-3xl p-8 lg:p-10 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-5px_rgba(0,0,0,0.1)] transition-all duration-500 border border-gray-100 hover:border-[#D4AF37]/30 group flex flex-col relative transform hover:-translate-y-2">
+                            {testimonials.map((testimonial, index) => {
+                                // Calculate position relative to the active window
+                                const position = index - currentIndex;
 
-                                        {/* Large Quote Mark */}
-                                        <div className="absolute top-6 right-8 text-[#D4AF37]/10 group-hover:text-[#D4AF37]/20 transition-colors duration-500 scale-150 transform origin-top-right">
-                                            <Quote size={64} fill="currentColor" className="rotate-180" />
-                                        </div>
+                                // Determing specific styles based on position and items per page
+                                let cardStyle = {};
+                                let cardClass = "h-full bg-white rounded-3xl p-8 lg:p-10 transition-all duration-700 border border-gray-100 flex flex-col relative";
 
-                                        {/* Rating Stars */}
-                                        <div className="flex gap-1 mb-6">
-                                            {[...Array(testimonial.rating)].map((_, i) => (
-                                                <Star key={i} size={18} className="fill-[#D4AF37] text-[#D4AF37] drop-shadow-sm" />
-                                            ))}
-                                        </div>
+                                if (itemsPerPage >= 3) {
+                                    if (position === 1) {
+                                        // Center Card
+                                        cardClass += " shadow-[0_20px_50px_rgba(212,175,55,0.15)] border-[#D4AF37] z-20 opacity-100 scale-100"; // Base scale is managed by transform
+                                        cardStyle = {
+                                            transform: 'scale(1.1)',
+                                        };
+                                    } else if (position === 0) {
+                                        // Left Card
+                                        cardClass += " shadow-none opacity-60 z-10 grayscale-[30%]";
+                                        cardStyle = {
+                                            transform: 'scale(0.85) perspective(1000px) rotateY(25deg)',
+                                            transformOrigin: 'right center'
+                                        };
+                                    } else if (position === 2) {
+                                        // Right Card
+                                        cardClass += " shadow-none opacity-60 z-10 grayscale-[30%]";
+                                        cardStyle = {
+                                            transform: 'scale(0.85) perspective(1000px) rotateY(-25deg)',
+                                            transformOrigin: 'left center'
+                                        };
+                                    } else {
+                                        // Cards outside the view
+                                        cardClass += " opacity-0 scale-75";
+                                    }
+                                } else {
+                                    // Mobile / Tablet logic (Standard cards)
+                                    cardClass += " shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-5px_rgba(0,0,0,0.1)] hover:-translate-y-2 hover:border-[#D4AF37]/30";
+                                }
 
-                                        {/* Testimonial Text */}
-                                        <blockquote className="text-gray-600 leading-relaxed text-lg mb-8 flex-grow font-light italic relative z-10">
-                                            "{testimonial.text}"
-                                        </blockquote>
+                                return (
+                                    <div
+                                        key={testimonial.id}
+                                        className="flex-shrink-0 px-3 lg:px-4"
+                                        style={{ width: `${100 / itemsPerPage}%` }}
+                                    >
+                                        <div
+                                            className={cardClass}
+                                            style={cardStyle}
+                                        >
 
-                                        {/* Author Profile */}
-                                        <div className="flex items-center gap-4 mt-auto border-t border-gray-100 pt-6">
-                                            {/* Avatar / Initials */}
-                                            <div className="w-14 h-14 rounded-full bg-[#D4AF37] p-0.5 shadow-md shrink-0 group-hover:scale-105 transition-transform duration-300">
-                                                <div className={`w-full h-full rounded-full ${testimonial.color} flex items-center justify-center`}>
-                                                    <span className="text-white font-bold text-lg">{testimonial.initials}</span>
-                                                </div>
+                                            {/* Large Quote Mark */}
+                                            <div className="absolute top-6 right-8 text-[#D4AF37]/10 group-hover:text-[#D4AF37]/20 transition-colors duration-500 scale-150 transform origin-top-right">
+                                                <Quote size={64} fill="currentColor" className="rotate-180" />
                                             </div>
 
-                                            <div>
-                                                <cite className="not-italic font-bold text-[#4D0013] text-lg block mb-0.5">
-                                                    {testimonial.name}
-                                                </cite>
+                                            {/* Rating Stars */}
+                                            <div className="flex gap-1 mb-6">
+                                                {[...Array(testimonial.rating)].map((_, i) => (
+                                                    <Star key={i} size={18} className="fill-[#D4AF37] text-[#D4AF37] drop-shadow-sm" />
+                                                ))}
+                                            </div>
 
+                                            {/* Testimonial Text */}
+                                            <blockquote className="text-gray-600 leading-relaxed text-lg mb-8 flex-grow font-light italic relative z-10">
+                                                "{testimonial.text}"
+                                            </blockquote>
+
+                                            {/* Author Profile */}
+                                            <div className="flex items-center gap-4 mt-auto border-t border-gray-100 pt-6">
+                                                {/* Avatar / Initials */}
+                                                <div className="w-14 h-14 rounded-full bg-[#D4AF37] p-0.5 shadow-md shrink-0">
+                                                    <div className={`w-full h-full rounded-full ${testimonial.color} flex items-center justify-center`}>
+                                                        <span className="text-white font-bold text-lg">{testimonial.initials}</span>
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <cite className="not-italic font-bold text-[#4D0013] text-lg block mb-0.5">
+                                                        {testimonial.name}
+                                                    </cite>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
 
