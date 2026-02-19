@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Stethoscope } from 'lucide-react';
 import bannerpic from '../assets/bannerpic.png';
-import animationVideo from '../assets/animationv4.mp4';
+import animationVideo from '../assets/animationv7.mp4';
 
 const Banner = () => {
     return (
@@ -66,7 +66,7 @@ const Banner = () => {
                             muted
                             playsInline
                             poster={bannerpic}
-                            className="relative z-10 w-full h-full md:h-[485px] md:w-[490px] object-cover rounded-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform hover:scale-105 transition-transform duration-700 ease-out mix-blend-screen"
+                            className="relative z-10 w-full h-full md:h-[500px] md:w-[500px] object-cover rounded-full  drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform hover:scale-105 transition-transform duration-700 ease-out mix-blend-screen"
                         />
                     </div>
                 </div>
