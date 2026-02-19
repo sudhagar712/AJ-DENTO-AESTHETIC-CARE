@@ -29,7 +29,7 @@ const TechnologyS = () => {
                             Our Precision
                         </span>
 
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-[1.1]">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl  text-white leading-[1.1]">
                             Technology That <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#B5952F]">Strengthens</span> Decisions.
                         </h2>

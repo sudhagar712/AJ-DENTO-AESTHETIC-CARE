@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const testimonials = [
     {
@@ -62,6 +64,12 @@ const Testimonial = () => {
             });
         };
 
+        AOS.init({
+            duration: 600,
+            once: false,
+            easing: 'ease-out-cubic'
+        });
+
         handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
@@ -96,19 +104,19 @@ const Testimonial = () => {
             <div className="relative max-w-7xl mx-auto px-4 md:px-8">
 
                 {/* Header */}
-                <div className="text-center mb-16 lg:mb-20 space-y-4">
-                    <span className="text-[#D4AF37] font-bold tracking-[0.2em] uppercase text-sm animate-fade-in">Testimonials</span>
-                    <h2 className="text-3xl md:text-5xl font-extrabold text-[#4D0013] drop-shadow-sm">
+                <div className="text-center mb-16 lg:mb-20 space-y-4" data-aos="fade-up">
+                    <span className="text-[#D4AF37] font-bold tracking-[0.2em] uppercase text-sm">Testimonials</span>
+                    <h2 className="text-3xl md:text-5xl font-extrabold text-[#4D0013] drop-shadow-sm" data-aos="zoom-in" data-aos-delay="100">
                         Stories of <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#B5952F]">Smiles</span>
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto rounded-full"></div>
-                    <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed font-light">
+                    <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto rounded-full" data-aos="fade-right" data-aos-delay="200"></div>
+                    <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed font-light" data-aos="fade-up" data-aos-delay="300">
                         Real experiences from our valued patients. Discover why AJ Dento is the trusted choice for dental care.
                     </p>
                 </div>
 
                 {/* Carousel */}
-                <div className="relative">
+                <div className="relative" data-aos="fade-up" data-aos-delay="400">
 
                     {/* Navigation Buttons (Desktop: Outside, Mobile: Hidden/Bottom) */}
                     <button

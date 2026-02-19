@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+
 import s1 from "../assets/servicesimg/1.webp"
 import s2 from "../assets/servicesimg/2.jpg"
 import s3 from "../assets/servicesimg/3.jpg"
@@ -84,7 +86,29 @@ const services = [
             p3: "Building trust early ensures that children grow up with positive associations with dental care, fostering healthy habits for the future."
         }
     }
+
 ];
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+const modalVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: { opacity: 1, scale: 1, transition: { type: "spring", damping: 25, stiffness: 300 } },
+    exit: { opacity: 0, scale: 0.95, transition: { duration: 0.2 } }
+};
 
 const ServicesCard = () => {
     const [activeService, setActiveService] = useState(null);
@@ -117,10 +141,17 @@ const ServicesCard = () => {
 
         <section className="bg-white py-32 px-6 md:px-12">
             <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
+                >
                     {services.map((service) => (
-                        <div
+                        <motion.div
                             key={service.id}
+                            variants={itemVariants}
                             onClick={() => openModal(service)}
                             className="bg-black border border-white/20 h-72 flex flex-col justify-end cursor-pointer group hover:border-[#D4AF37]/50 transition-all duration-700 relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl hover:shadow-[#D4AF37]/10"
                         >
@@ -153,88 +184,99 @@ const ServicesCard = () => {
                             <div className="absolute top-4 right-4 z-20 p-2 bg-white/10 backdrop-blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 border border-white/20">
                                 <ArrowUpRight className="text-white" size={16} />
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
 
             {/* Modal */}
-            {activeService && (
-                <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
-                    <div
-                        className="absolute inset-0 bg-black/95 backdrop-blur-md transition-opacity"
-                        onClick={closeModal}
-                    ></div>
-
-                    <div className="relative bg-white w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-3xl shadow-2xl animate-fade-in-up flex flex-col md:flex-row group/modal">
-
-                        {/* Navigation Buttons */}
-                        <button
-                            onClick={handlePrev}
-                            className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-3 bg-white/10 hover:bg-black/50 backdrop-blur-md rounded-full text-white hover:scale-110 transition-all duration-300 border border-white/20 hidden md:block"
-                        >
-                            <ChevronLeft size={24} />
-                        </button>
-                        <button
-                            onClick={handleNext}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-3 bg-black/5 hover:bg-black/50 backdrop-blur-md rounded-full text-[#4D0013] hover:text-white hover:scale-110 transition-all duration-300 border border-[#4D0013]/10 hover:border-white/20 hidden md:block"
-                        >
-                            <ChevronRight size={24} />
-                        </button>
-
-                        <button
+            <AnimatePresence>
+                {activeService && (
+                    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="absolute inset-0 bg-black/95 backdrop-blur-md"
                             onClick={closeModal}
-                            className="absolute top-4 right-4 p-2  bg-[#4D0013] text-#4D0013 transition-colors rounded-full z-50"
+                        ></motion.div>
+
+                        <motion.div
+                            variants={modalVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            className="relative bg-white w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-3xl shadow-2xl flex flex-col md:flex-row group/modal"
                         >
-                            <X size={20} />
-                        </button>
 
-                        {/* Modal Left: Image */}
-                        <div className="w-full md:w-1/2 h-64 md:h-auto relative">
-                            <img
-                                src={activeService.image}
-                                alt={activeService.title}
-                                className="w-full h-full object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:hidden"></div>
+                            {/* Navigation Buttons */}
+                            <button
+                                onClick={handlePrev}
+                                className="absolute left-4 top-1/2 -translate-y-1/2 z-50 p-3 bg-white/10 hover:bg-black/50 backdrop-blur-md rounded-full text-white hover:scale-110 transition-all duration-300 border border-white/20 hidden md:block"
+                            >
+                                <ChevronLeft size={24} />
+                            </button>
+                            <button
+                                onClick={handleNext}
+                                className="absolute right-4 top-1/2 -translate-y-1/2 z-50 p-3 bg-black/5 hover:bg-black/50 backdrop-blur-md rounded-full text-[#4D0013] hover:text-white hover:scale-110 transition-all duration-300 border border-[#4D0013]/10 hover:border-white/20 hidden md:block"
+                            >
+                                <ChevronRight size={24} />
+                            </button>
 
-                            {/* Mobile Nav Overlay */}
-                            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-2 md:hidden">
-                                <button onClick={handlePrev} className="p-2 bg-black/30 rounded-full text-white backdrop-blur-sm"><ChevronLeft size={20} /></button>
-                                <button onClick={handleNext} className="p-2 bg-black/30 rounded-full text-white backdrop-blur-sm"><ChevronRight size={20} /></button>
+                            <button
+                                onClick={closeModal}
+                                className="absolute top-4 right-4 p-2  bg-[#4D0013] text-white transition-colors rounded-full z-50 hover:bg-[#3a000e]"
+                            >
+                                <X size={20} />
+                            </button>
+
+                            {/* Modal Left: Image */}
+                            <div className="w-full md:w-1/2 h-64 md:h-auto relative">
+                                <img
+                                    src={activeService.image}
+                                    alt={activeService.title}
+                                    className="w-full h-full object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:hidden"></div>
+
+                                {/* Mobile Nav Overlay */}
+                                <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-2 md:hidden">
+                                    <button onClick={handlePrev} className="p-2 bg-black/30 rounded-full text-white backdrop-blur-sm"><ChevronLeft size={20} /></button>
+                                    <button onClick={handleNext} className="p-2 bg-black/30 rounded-full text-white backdrop-blur-sm"><ChevronRight size={20} /></button>
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Modal Right: Content */}
-                        <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto bg-white">
-                            <span className="text-[#D4AF37] text-xs font-bold tracking-[0.2em] uppercase block mb-4">
-                                Service Detail
-                            </span>
+                            {/* Modal Right: Content */}
+                            <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto bg-white">
+                                <span className="text-[#D4AF37] text-xs font-bold tracking-[0.2em] uppercase block mb-4">
+                                    Service Detail
+                                </span>
 
-                            <h2 className="text-3xl md:text-5xl font-serif text-[#4D0013] mb-8 leading-tight">
-                                {activeService.content.title}
-                            </h2>
+                                <h2 className="text-3xl md:text-5xl font-serif text-[#4D0013] mb-8 leading-tight">
+                                    {activeService.content.title}
+                                </h2>
 
-                            <div className="space-y-6 text-gray-600 leading-relaxed font-light text-lg">
-                                <p>{activeService.content.p1}</p>
-                                <p>{activeService.content.p2}</p>
-                                <p>{activeService.content.p3}</p>
+                                <div className="space-y-6 text-gray-600 leading-relaxed font-light text-lg">
+                                    <p>{activeService.content.p1}</p>
+                                    <p>{activeService.content.p2}</p>
+                                    <p>{activeService.content.p3}</p>
+                                </div>
+
+                                <div className="mt-12 pt-8 border-t border-gray-100">
+                                    <Link
+                                        to="/contact"
+                                        onClick={closeModal}
+                                        className="inline-flex items-center gap-3 bg-[#4D0013] text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-[#3a000e] transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 transform duration-300 w-full md:w-auto justify-center rounded-xl"
+                                    >
+                                        Book Your Consultation
+                                        <ArrowUpRight size={16} />
+                                    </Link>
+                                </div>
                             </div>
-
-                            <div className="mt-12 pt-8 border-t border-gray-100">
-                                <Link
-                                    to="/contact"
-                                    onClick={closeModal}
-                                    className="inline-flex items-center gap-3 bg-[#4D0013] text-white px-8 py-4 text-sm font-bold uppercase tracking-widest hover:bg-[#3a000e] transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1 transform duration-300 w-full md:w-auto justify-center rounded-xl"
-                                >
-                                    Book Your Consultation
-                                    <ArrowUpRight size={16} />
-                                </Link>
-                            </div>
-                        </div>
+                        </motion.div>
                     </div>
-                </div>
-            )}
+                )}
+            </AnimatePresence>
         </section>
     );
 };
