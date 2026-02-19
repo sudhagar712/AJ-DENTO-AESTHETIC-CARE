@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Stethoscope } from 'lucide-react';
 import bannerpic from '../assets/bannerpic.png';
+import animationVideo from '../assets/animationv4.mp4';
 
 const Banner = () => {
     return (
@@ -45,7 +46,9 @@ const Banner = () => {
                             </span>
                         </Link>
 
-                        <button className="px-6 py-3 lg:px-8 lg:py-4 bg-white/5 border border-white/20 text-white font-medium rounded-full hover:bg-white/10 hover:border-white/40 backdrop-blur-md transition-all duration-300 active:scale-95 flex items-center justify-center gap-2 group text-sm lg:text-base">
+                        <button
+                            onClick={() => document.getElementById('about-us')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="px-6 py-3 lg:px-8 lg:py-4 bg-white/5 border border-white/20 text-white font-medium rounded-full hover:bg-white/10 hover:border-white/40 backdrop-blur-md transition-all duration-300 active:scale-95 flex items-center justify-center gap-2 group text-sm lg:text-base">
                             <span>Explore Expertise</span>
                         </button>
                     </div>
@@ -56,10 +59,14 @@ const Banner = () => {
                     <div className="relative w-full max-w-full md:max-w-md lg:max-w-xl aspect-square flex items-center justify-center">
                         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10 rounded-full blur-3xl -z-10"></div>
 
-                        <img
-                            src={bannerpic}
-                            alt="AJ Dento Aesthetic"
-                            className="relative z-10 w-full h-full md:h-[500px] md:w-[500px] object-cover rounded-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform hover:scale-105 transition-transform duration-700 ease-out"
+                        <video
+                            src={animationVideo}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            poster={bannerpic}
+                            className="relative z-10 w-full h-full md:h-[485px] md:w-[490px] object-cover rounded-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform hover:scale-105 transition-transform duration-700 ease-out mix-blend-screen"
                         />
                     </div>
                 </div>
