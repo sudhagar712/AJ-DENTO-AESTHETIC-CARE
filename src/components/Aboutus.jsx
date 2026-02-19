@@ -12,7 +12,7 @@ const Aboutus = () => {
                 {/* Header Section */}
                 <div className="space-y-6 flex flex-col items-center">
                     <div className="text-center space-y-2 mb-4">
-                        <h2 className="text-4xl md:text-5xl font-serif text-[#D4AF37] tracking-tight border-b-2 border-[#D4AF37]/20 pb-2 inline-block">
+                        <h2 className="text-4xl md:text-5xl text-[#D4AF37] tracking-tight border-b-2 border-[#D4AF37]/20 pb-2 inline-block">
                             About Us
                         </h2>
                         <p className="text-xs md:text-sm font-medium text-[#4D0013] tracking-[0.4em] uppercase pt-2">
@@ -23,7 +23,7 @@ const Aboutus = () => {
                 </div>
 
                 {/* Text Content */}
-                <div className="space-y-8 text-gray-500 text-lg md:text-xl font-light leading-relaxed max-w-3xl">
+                <div className="space-y-8 text-gray-500 text-lg italic md:text-xl font-light leading-relaxed max-w-3xl">
                     <p>
                         <strong className="text-yellow-600 font-medium">AJ Dento Aesthetic Care</strong> was built on a simple belief: dental care should begin with protection, not pain. Located in Anna Nagar, Chennai, we exist to redefine how dentistry is delivered.
                     </p>

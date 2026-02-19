@@ -31,7 +31,7 @@ const OurValues = () => {
                 {/* Section Header */}
                 <div className="mb-20 text-center">
 
-                    <h2 className="text-4xl md:text-5xl font-serif text-white">
+                    <h2 className="text-4xl md:text-5xl  text-yellow-400 font-bold">
                         Our Values
                     </h2>
                     <div className="w-24 h-[1px] bg-white/20 mx-auto mt-8"></div>
@@ -40,14 +40,14 @@ const OurValues = () => {
                 {/* Values Grid - Vertical Blocks */}
                 <div className="space-y-16">
                     {values.map((item, index) => (
-                        <div key={index} className="group relative pl-8 md:pl-12 border-l border-white/10 hover:border-[#D4AF37] transition-colors duration-500">
+                        <div key={index} className="group relative pl-8 md:pl-12 border-l border-[#D4AF37] transition-colors duration-500">
 
                             {/* Number for Hierarchy */}
-                            <span className="absolute -left-[1.5rem] md:-left-[2rem] top-0 text-xs text-[#D4AF37] opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-mono">
+                            <span className="absolute -left-[1.5rem] md:-left-[2rem] top-0 text-xs text-[#D4AF37]  transition-opacity duration-300 ">
                                 0{index + 1}
                             </span>
 
-                            <h3 className="text-2xl md:text-3xl font-serif text-white mb-4 group-hover:text-[#D4AF37] transition-colors duration-300">
+                            <h3 className="text-2xl md:text-3xl  mb-4 text-[#D4AF37] transition-colors duration-300">
                                 {item.title}
                             </h3>
                             <p className="text-gray-400 font-light text-lg leading-relaxed max-w-2xl">

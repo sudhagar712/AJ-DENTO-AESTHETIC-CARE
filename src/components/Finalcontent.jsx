@@ -29,7 +29,7 @@ const Finalcontent = () => {
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">before damage</span>
                         </h2>
 
-                      
+
 
                         <p className="text-yellow-600 uppercase font-bold text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
                             AJ dento aesthetic care
@@ -44,11 +44,16 @@ const Finalcontent = () => {
                 </div>
 
                 {/* Right Side - Form */}
-                <div className="w-full relative ">
-                    {/* Decorative element behind form */}
-                    <div className="absolute -inset-4 bg-gradient-to-r from-[#D4AF37]/20 to-[#4D0013]/20 rounded-[2.5rem] blur-xl opacity-50 -z-10"></div>
-                    <ContactForm />
-                </div>
+                <section id="contact-section">
+
+                    <div className="w-full relative ">
+                        {/* Decorative element behind form */}
+                        <div className="absolute -inset-4 bg-gradient-to-r from-[#D4AF37]/20 to-[#4D0013]/20 rounded-[2.5rem] blur-xl opacity-50 -z-10"></div>
+                        <ContactForm />
+                    </div>
+
+                </section>
+
 
             </div>
         </section>

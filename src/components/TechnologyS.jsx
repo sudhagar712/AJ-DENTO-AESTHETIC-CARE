@@ -44,14 +44,14 @@ const TechnologyS = () => {
 
                         <div className="pt-8">
                             {/* Assuming CTA links to About or Services, using a dummy link for now or just a button style */}
-                            <Link
-                                to="/about"
+                            <button
+                                onClick={() => document.getElementById('about-us')?.scrollIntoView({ behavior: 'smooth' })}
                                 className="inline-flex items-center gap-4 text-white font-bold tracking-widest uppercase text-sm group hover:text-[#D4AF37] transition-colors"
                             >
                                 See How We Work
                                 <span className="w-12 h-[1px] bg-white group-hover:w-20 group-hover:bg-[#D4AF37] transition-all duration-300"></span>
                                 <ArrowRight className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" />
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </div>

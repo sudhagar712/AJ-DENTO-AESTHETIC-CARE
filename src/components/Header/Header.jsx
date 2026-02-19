@@ -23,7 +23,7 @@ const Header = () => {
     { name: 'Gallery', href: '/gallery' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
-  ];
+  ].filter(link => link.name !== 'About Us' || location.pathname === '/');
 
   // Determine if we are on a page where the header should behave differently?
   // For now, both Home and Contact start with dark banners, so logic remains same.

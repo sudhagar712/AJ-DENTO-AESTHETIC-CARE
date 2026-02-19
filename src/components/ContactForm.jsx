@@ -41,8 +41,8 @@ const ContactForm = () => {
                 <div className="relative z-10">
                     <div className="flex items-center justify-between mb-8">
                         <div>
-                            <h3 className="text-3xl font-serif text-white mb-2">Enquiry Form</h3>
-                            <p className="text-gray-400 text-sm font-light tracking-wide">Begin your journey to a perfect smile.</p>
+                            <h3 className="text-3xl font-serif text-white mb-2">🗓️ Book an Appointment</h3>
+
                         </div>
                         <div className="w-12 h-12 rounded-full bg-[#4D0013]/30 border border-[#D4AF37]/20 flex items-center justify-center">
                             <Clock className="w-6 h-6 text-[#D4AF37]" />
