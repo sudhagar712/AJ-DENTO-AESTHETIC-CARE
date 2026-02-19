@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, CheckCircle } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Contact = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: false,
+            easing: 'ease-out-cubic'
+        });
+    }, []);
+
     return (
         <div className="font-sans">
             {/* --- Premium Banner Section --- */}
@@ -20,12 +30,12 @@ const Contact = () => {
                     <div className="flex flex-col items-center justify-center space-y-4">
 
                         {/* Badge */}
-                        <div className="inline-flex items-center gap-2 px-3 py-1 border border-[#D4AF37]/30 rounded-full bg-[#D4AF37]/10 backdrop-blur-sm mb-2">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 border border-[#D4AF37]/30 rounded-full bg-[#D4AF37]/10 backdrop-blur-sm mb-2" data-aos="fade-down" data-aos-delay="100">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>
                             <span className="text-[#D4AF37] text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">Enquiry Form</span>
                         </div>
 
-                        <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#D4AF37] tracking-tight drop-shadow-2xl">
+                        <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#D4AF37] tracking-tight drop-shadow-2xl" data-aos="zoom-in" data-aos-delay="200">
                             Contact Us
                         </h1>
 
@@ -50,16 +60,15 @@ const Contact = () => {
                         <div className="space-y-12 pt-10">
 
                             <div className="space-y-6">
-                                <h2 className="text-5xl md:text-6xl font-extrabold text-white leading-tight">
+                                <h2 className="text-5xl md:text-6xl font-extrabold text-white leading-tight" data-aos="fade-right">
                                     Let's Connect
-
                                 </h2>
 
                                 <div className="space-y-4">
-                                    <p className="text-xl md:text-2xl text-white font-thin border-l-4 border-[#D4AF37] pl-6 py-1">
+                                    <p className="text-xl md:text-2xl text-white font-thin border-l-4 border-[#D4AF37] pl-6 py-1" data-aos="fade-right" data-aos-delay="200">
                                         Wait until discomfort forces action.
                                     </p>
-                                    <p className="text-xl md:text-2xl text-white font-thin border-l-4 border-gray-200 pl-6 py-1">
+                                    <p className="text-xl md:text-2xl text-white font-thin border-l-4 border-gray-200 pl-6 py-1" data-aos="fade-right" data-aos-delay="400">
                                         Or take control before it does.
                                     </p>
                                 </div>

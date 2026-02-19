@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const TechnologyS = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: false,
+            easing: 'ease-out-cubic'
+        });
+    }, []);
+
     return (
         <section className="">
             <div className="grid md:grid-cols-2 min-h-[600px]">
 
                 {/* Left: High Contrast Equipment Image */}
-                <div className="relative h-full w-full overflow-hidden group">
+                <div className="relative h-full w-full overflow-hidden group" data-aos="fade-right">
                     <div className="absolute inset-0 bg-yellow-100/50 z-10 group-hover:bg-transparent transition-colors duration-700"></div>
                     {/* Using a high-quality dental equipment image placeholder */}
                     <img
@@ -24,7 +34,7 @@ const TechnologyS = () => {
                     {/* Decorative Elements */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
-                    <div className="relative z-10 max-w-lg space-y-8">
+                    <div className="relative z-10 max-w-lg space-y-8" data-aos="fade-left">
                         <span className="text-[#D4AF37] text-xs font-bold tracking-[0.3em] uppercase block">
                             Our Precision
                         </span>

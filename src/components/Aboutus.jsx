@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import teeth from '../assets/bannerpic.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import smile from '../assets/dental.jpg';
 
 const Aboutus = () => {
     useEffect(() => {
@@ -29,7 +30,15 @@ const Aboutus = () => {
                         </p>
                     </div>
 
+
+                    <div className="w-48 h-48 md:w-64 md:h-64 mt-10 rounded-full overflow-hidden border-4 border-[#D4AF37]/20 shadow-xl mx-auto transform hover:scale-105 transition-transform duration-500">
+                        <img src={smile} alt="Happy Patient" className='w-full h-full object-cover' />
+                    </div>
+
                 </div>
+
+
+
 
                 {/* Text Content */}
                 <div className="space-y-8 text-gray-500 text-lg italic md:text-xl font-light leading-relaxed max-w-3xl" data-aos="fade-up" data-aos-delay="300">
@@ -52,11 +61,11 @@ const Aboutus = () => {
                 </div>
 
                 {/* Image */}
-                <div className="w-full max-w-[200px] md:max-w-[250px] mx-auto transform hover:scale-105 transition-transform duration-700" data-aos="flip-up" data-aos-duration="1200" data-aos-delay="700">
+                <div className="w-full max-w-[200px] md:max-w-[250px] mx-auto transform hover:scale-105 transition-transform duration-700" >
                     <img
                         src={teeth}
                         alt="AJ Dento Philosophy"
-                        className="w-full h-auto object-cover rounded-full drop-shadow-2xl"
+                        className="w-full h-auto object-cover drop-shadow-2xl"
                     />
                 </div>
 

@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Loader2, CheckCircle, Clock, Phone } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -9,6 +11,14 @@ const ContactForm = () => {
         preferredTime: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic'
+        });
+    }, []);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -41,7 +51,7 @@ const ContactForm = () => {
                 <div className="relative z-10">
                     <div className="flex items-center justify-between mb-8">
                         <div>
-                            <h3 className="text-3xl font-serif text-white mb-2">🗓️ Book an Appointment</h3>
+                            <h3 className="text-3xl font-serif text-white mb-2" data-aos="fade-right">🗓️ Book an Appointment</h3>
 
                         </div>
                         <div className="w-12 h-12 rounded-full bg-[#4D0013]/30 border border-[#D4AF37]/20 flex items-center justify-center">
@@ -52,7 +62,7 @@ const ContactForm = () => {
                     <form onSubmit={handleSubmit} className="space-y-6">
 
                         {/* Name Input */}
-                        <div className="relative group/input">
+                        <div className="relative group/input" data-aos="fade-up" data-aos-delay="100">
                             <input
                                 type="text"
                                 name="name"
@@ -72,7 +82,7 @@ const ContactForm = () => {
                         </div>
 
                         {/* Phone Input */}
-                        <div className="relative group/input">
+                        <div className="relative group/input" data-aos="fade-up" data-aos-delay="200">
                             <input
                                 type="tel"
                                 name="phone"
@@ -91,7 +101,7 @@ const ContactForm = () => {
                         </div>
 
                         {/* Concern Input */}
-                        <div className="relative group/input">
+                        <div className="relative group/input" data-aos="fade-up" data-aos-delay="300">
                             <textarea
                                 name="concern"
                                 id="concern"
@@ -111,7 +121,7 @@ const ContactForm = () => {
                         </div>
 
                         {/* Preferred Time Input */}
-                        <div className="relative group/input">
+                        <div className="relative group/input" data-aos="fade-up" data-aos-delay="400">
                             <input
                                 type="text"
                                 name="preferredTime"

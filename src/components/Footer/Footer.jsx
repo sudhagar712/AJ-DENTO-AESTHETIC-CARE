@@ -1,8 +1,18 @@
+import React, { useEffect } from 'react';
 import logo from '../../assets/logo.png';
 import { Phone, MapPin } from "lucide-react";
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Footer() {
+    useEffect(() => {
+        AOS.init({
+            duration: 800,
+            once: false,
+            easing: 'ease-out-cubic'
+        });
+    }, []);
 
     return (
 
@@ -12,14 +22,14 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
 
                 {/* Brand */}
-                <div>
+                <div data-aos="fade-up">
                     {/* Logo Section */}
                     {/* Removed brightness-0 invert to show original logo colors on light background */}
                     <Link to="/">
                         <img
                             src={logo}
                             alt="AJ Dento Aesthetic"
-                            className="h-20 w-auto object-contain mb-6 "    
+                            className="h-20 w-auto object-contain mb-6 "
                         />
                         <span className='text-yellow-500 text-sm font-bold tracking-widest mb-6'>AJ DENTO AESTHETIC CARE</span>
                     </Link>
@@ -32,7 +42,7 @@ export default function Footer() {
                 </div>
 
                 {/* Quick Links */}
-                <div>
+                <div data-aos="fade-up" data-aos-delay="100">
                     <h3 className="text-sm uppercase text-yellow-400 font-bold tracking-widest mb-6">
                         Quick Links
                     </h3>
@@ -52,7 +62,7 @@ export default function Footer() {
                 </div>
 
                 {/* Expertise */}
-                <div>
+                <div data-aos="fade-up" data-aos-delay="200">
                     <h3 className="text-sm uppercase text-yellow-400 font-bold tracking-widest mb-6">
                         Expertise
                     </h3>
@@ -74,7 +84,7 @@ export default function Footer() {
                 </div>
 
                 {/* Contact */}
-                <div>
+                <div data-aos="fade-up" data-aos-delay="300">
                     <h3 className="text-sm uppercase text-yellow-400 font-bold tracking-widest mb-6">
                         Contact
                     </h3>

@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ContactForm from './ContactForm';
 import { Clock, ShieldCheck, Smile } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Finalcontent = () => {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: false,
+            easing: 'ease-out-cubic'
+        });
+    }, []);
+
     return (
         <section className="py-24 md:py-32 px-4 relative overflow-hidden ">
 
@@ -18,20 +28,20 @@ const Finalcontent = () => {
                 {/* Left Side - Compelling Copy */}
                 <div className="text-center lg:text-left space-y-10 relative">
 
-                    <div className="space-y-6">
+                    <div className="space-y-6" data-aos="fade-right">
                         <div className="inline-flex items-center gap-2 px-3 py-1 border border-[#D4AF37]/30 rounded-full bg-[#D4AF37]/10 backdrop-blur-sm mx-auto lg:mx-0">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse"></span>
                             <span className="text-[#D4AF37] text-xs font-bold tracking-[0.2em] uppercase">Book Your Visit</span>
                         </div>
 
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-[1.1]">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-[1.1]" data-aos="fade-up" data-aos-delay="200">
                             Your smile deserves protection<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">before damage</span>
                         </h2>
 
 
 
-                        <p className="text-yellow-600 uppercase font-bold text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        <p className="text-yellow-600 uppercase font-bold text-lg leading-relaxed max-w-xl mx-auto lg:mx-0" data-aos="fade-up" data-aos-delay="400">
                             AJ dento aesthetic care
                         </p>
 
@@ -44,7 +54,7 @@ const Finalcontent = () => {
                 </div>
 
                 {/* Right Side - Form */}
-                <section id="contact-section">
+                <section id="contact-section" data-aos="zoom-in" data-aos-delay="300">
 
                     <div className="w-full relative ">
                         {/* Decorative element behind form */}
