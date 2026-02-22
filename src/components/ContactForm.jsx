@@ -62,7 +62,7 @@ const ContactForm = () => {
         const whatsappUrl = `https://wa.me/918098449999?text=${message}`;
         setTimeout(() => {
             window.open(whatsappUrl, '_blank');
-            setIsSubmitting(false);
+            setIsSubmitting(false); 
             setFormData({ name: '', phone: '', concern: '', preferredTime: '' });
         }, 1500);
     };

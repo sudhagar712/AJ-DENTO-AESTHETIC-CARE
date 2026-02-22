@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import logo from '../../assets/logo.png';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight, Phone, Mail } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
@@ -186,8 +186,8 @@ const Header = () => {
                     <span className="relative z-10 pl-1">{link.name}</span>
                     <ChevronRight
                       className={`w-4 h-4 transition-all duration-300 ${isActive
-                          ? 'text-[#FFE600]'
-                          : 'text-gray-300 group-hover:text-[#4D0013] group-hover:translate-x-1'
+                        ? 'text-[#FFE600]'
+                        : 'text-gray-300 group-hover:text-[#4D0013] group-hover:translate-x-1'
                         }`}
                     />
                   </Link>
@@ -227,6 +227,39 @@ const Header = () => {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Contact Info Row */}
+            <div className="mx-4 mb-5 grid grid-cols-2 gap-3">
+
+              {/* Phone */}
+              <a
+                href="tel:+918098449999"
+                className="flex flex-col items-center justify-center gap-1.5 py-3.5 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-[#4D0013]/5 hover:border-[#4D0013]/20 transition-all duration-300 group shadow-sm"
+              >
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#FFE600] to-[#FFC200] flex items-center justify-center shadow-sm shadow-yellow-200 group-hover:scale-110 transition-transform duration-300">
+                  <Phone className="w-3.5 h-3.5 fill-[#4D0013] text-[#4D0013]" />
+                </div>
+                <div className="text-center">
+                  <p className="text-[9px] text-gray-400 font-black tracking-[0.15em] uppercase">Call Us</p>
+                  <p className="text-gray-800 text-[11px] font-bold leading-tight">8098449999</p>
+                </div>
+              </a>
+
+              {/* Email */}
+              <a
+                href="mailto:ajdentcare@gmail.com"
+                className="flex flex-col items-center justify-center gap-1.5 py-3.5 rounded-2xl border border-gray-100 bg-gray-50 hover:bg-[#4D0013]/5 hover:border-[#4D0013]/20 transition-all duration-300 group shadow-sm"
+              >
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#FFE600] to-[#FFC200] flex items-center justify-center shadow-sm shadow-yellow-200 group-hover:scale-110 transition-transform duration-300">
+                  <Mail className="w-3.5 h-3.5 text-[#4D0013]" />
+                </div>
+                <div className="text-center">
+                  <p className="text-[9px] text-gray-400 font-black tracking-[0.15em] uppercase">Email Us</p>
+                  <p className="text-gray-800 text-[10px] font-bold leading-tight break-all">ajdentcare@gmail.com</p>
+                </div>
+              </a>
+
             </div>
 
           </div>
