@@ -67,7 +67,7 @@ const Banner = () => {
                                 AESTHETIC CARE
                             </span>
                         </motion.h1>
-                        <motion.p variants={fadeInUp} className="text-base md:text-lg lg:text-xl text-gray-200 font-light max-w-md lg:max-w-lg mx-auto lg:mx-0 leading-relaxed">
+                        <motion.p variants={fadeInUp} className="text-base md:text-lg lg:text-xl text-gray-200 italic font-light max-w-md lg:max-w-lg mx-auto lg:mx-0 leading-relaxed">
                             Crafting Smiles with Precision. <br className="hidden md:block" />
                         </motion.p>
                     </div>
@@ -76,7 +76,7 @@ const Banner = () => {
                     <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-2 lg:pt-4">
                         <button
                             onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="group relative px-6 py-3 lg:px-8 lg:py-4 bg-gradient-to-r from-[#D4AF37] to-[#B5952F] text-[#4D0013] font-bold rounded-full overflow-hidden shadow-[0_10px_20px_rgba(212,175,55,0.3)] hover:shadow-[0_15px_30px_rgba(212,175,55,0.5)] active:scale-95 transition-all duration-300 inline-block text-center"
+                            className="group relative px-6 py-3 lg:px-8 lg:py-4 bg-gradient-to-r from-[#FFE600] to-[#FFC200] text-[#4D0013] font-bold rounded-full overflow-hidden shadow-[0_10px_20px_rgba(255,220,0,0.35)] hover:shadow-[0_15px_30px_rgba(255,220,0,0.55)] active:scale-95 transition-all duration-300 inline-block text-center"
                         >
                             <span className="relative z-10 flex items-center justify-center gap-2 text-sm lg:text-base">
                                 Begin Consultation

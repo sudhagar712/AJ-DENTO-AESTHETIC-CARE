@@ -15,7 +15,7 @@ const Finalcontent = () => {
     }, []);
 
     return (
-        <section className="py-24 md:py-32 px-4 relative overflow-hidden ">
+        <section id="contact-section" className="py-24 md:py-32 px-4 relative overflow-hidden ">
 
             {/* Background Gradients */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -26,7 +26,7 @@ const Finalcontent = () => {
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24  relative z-10">
 
                 {/* Left Side - Compelling Copy */}
-                <div className="text-center lg:text-left space-y-10 relative">
+                <div className="order-2 lg:order-1 text-center lg:text-left space-y-10 relative">
 
                     <div className="space-y-6" data-aos="fade-right">
                         <div className="inline-flex items-center gap-2 px-3 py-1 border border-[#D4AF37]/30 rounded-full bg-[#D4AF37]/10 backdrop-blur-sm mx-auto lg:mx-0">
@@ -54,7 +54,7 @@ const Finalcontent = () => {
                 </div>
 
                 {/* Right Side - Form */}
-                <section id="contact-section" data-aos="zoom-in" data-aos-delay="300">
+                <section className="order-1 lg:order-2" data-aos="zoom-in" data-aos-delay="300">
 
                     <div className="w-full relative ">
                         {/* Decorative element behind form */}
