@@ -47,8 +47,21 @@ const Values = () => {
                         Our Philosophy
                     </span>
                     <h2 className="text-4xl lg:text-5xl font-serif text-white mb-12 leading-tight">
-                        Guided by <span className="text-[#D4AF37] italic">Values</span>,<br />
-                        Focused on <span className="text-[#D4AF37] italic">Care</span>.
+                        Guided by <span
+                            className="italic"
+                            style={{
+                                background: 'linear-gradient(135deg, #FFD700 0%, #FFC200 20%, #FFAA00 45%, #F5A623 65%, #E8960A 85%, #D4830A 100%)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                backgroundClip: 'text'
+                            }}
+                        >Values</span>,<br />
+                        Focused on <span  style={{
+                                background: 'linear-gradient(135deg, #FFD700 0%, #FFC200 20%, #FFAA00 45%, #F5A623 65%, #E8960A 85%, #D4830A 100%)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                backgroundClip: 'text'
+                            }} className="text-[#D4AF37] italic">Care</span>.
                     </h2>
 
                     <div className="space-y-8">

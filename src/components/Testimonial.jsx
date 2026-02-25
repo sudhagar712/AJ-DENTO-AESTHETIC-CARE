@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import p1 from "../assets/servicesimg/p1.jpg"
+import p2 from"../assets/servicesimg/p2.jpg"
+import p3 from "../assets/servicesimg/p3.jpg"
+import p4 from "../assets/servicesimg/p4.png"
 
 const testimonials = [
     {
@@ -10,8 +14,7 @@ const testimonials = [
         text: "I visited for dental implants. The consultation was detailed, and every step was explained clearly before starting treatment.",
         rating: 4,
         role: "Regular Patient",
-        initials: "S",
-        color: "bg-rose-600"
+        image: p1
     },
     {
         id: 2,
@@ -19,8 +22,7 @@ const testimonials = [
         text: "I chose Invisalign here after my assessment. The planning felt precise, and the process was structured.",
         rating: 4,
         role: "Orthodontics",
-        initials: "J",
-        color: "bg-blue-600"
+        image: p2
     },
     {
         id: 3,
@@ -28,17 +30,15 @@ const testimonials = [
         text: "My root canal treatment was handled professionally. The pain was addressed immediately, and follow-up was systematic.",
         rating: 5,
         role: "Cosmetic Dentistry",
-        initials: "S",
-        color: "bg-emerald-600"
+        image: p3
     },
     {
         id: 4,
         name: "Nirmala",
-        text: "My child’s dental checkup was thorough. The approach was calm and well explained.",
+        text: "My child's dental checkup was thorough. The approach was calm and well explained.",
         rating: 5,
         role: "Parent",
-        initials: "N",
-        color: "bg-purple-600"
+        image: p4
     },
 
 ];
@@ -160,14 +160,14 @@ const Testimonial = () => {
                                         // Left Card
                                         cardClass += " shadow-none opacity-60 z-10 grayscale-[30%]";
                                         cardStyle = {
-                                            transform: 'scale(0.85) perspective(1000px) rotateY(25deg)',
+                                            transform: 'scale(0.85) perspective(1000px) rotateY(-25deg)',
                                             transformOrigin: 'right center'
                                         };
                                     } else if (position === 2) {
                                         // Right Card
                                         cardClass += " shadow-none opacity-60 z-10 grayscale-[30%]";
                                         cardStyle = {
-                                            transform: 'scale(0.85) perspective(1000px) rotateY(-25deg)',
+                                            transform: 'scale(0.85) perspective(1000px) rotateY(25deg)',
                                             transformOrigin: 'left center'
                                         };
                                     } else {
@@ -209,11 +209,13 @@ const Testimonial = () => {
 
                                             {/* Author Profile */}
                                             <div className="flex items-center gap-4 mt-auto border-t border-gray-100 pt-6">
-                                                {/* Avatar / Initials */}
-                                                <div className="w-14 h-14 rounded-full bg-[#D4AF37] p-0.5 shadow-md shrink-0">
-                                                    <div className={`w-full h-full rounded-full ${testimonial.color} flex items-center justify-center`}>
-                                                        <span className="text-white font-bold text-lg">{testimonial.initials}</span>
-                                                    </div>
+                                                {/* Avatar Image */}
+                                                <div className="w-14 h-14 rounded-full ring-2 ring-[#D4AF37] ring-offset-2 shadow-md shrink-0 overflow-hidden">
+                                                    <img
+                                                        src={testimonial.image}
+                                                        alt={testimonial.name}
+                                                        className="w-full h-full object-cover rounded-full"
+                                                    />
                                                 </div>
 
                                                 <div>

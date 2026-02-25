@@ -37,7 +37,7 @@ const imageAnimation = {
 
 const Banner = () => {
     return (
-        <section className="relative w-full min-h-screen lg:min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden pt-28 pb-12 lg:pt-20 px-4 md:px-8 lg:px-12">
+        <section className="relative w-full mt-10 md:mt-0 min-h-screen lg:min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden pt-28 pb-12 lg:pt-20 px-4 md:px-8 lg:px-12">
             <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
                 {/* Left Column: Text Content */}
